@@ -18,7 +18,7 @@ function getAchives(){
     t = ``;
     $.ajax({
         type:"GET",
-        url:"https://moedog.org/wp-json/wp/v2/posts?per_page=8&page=1",
+        url:"https://howardshome.cn/wp-json/wp/v2/posts?per_page=8&page=1",
         dataType:"json",
         success:function(json){
             for(var i = 0;i < json.length;i++){
@@ -31,7 +31,7 @@ function getAchives(){
         }
     })
 }
-
+/*
 function gethitokoto(){
     $.ajax({
         type:"POST",
@@ -53,14 +53,14 @@ function write(text){
         gethitokoto();
     }
 }
-
+*/
 $(function(){
     $.ajax({
-        url:"https://api.fczbl.vip/163_sp/?type=playlist&id=2003373695",
+        url:"https://api.fczbl.vip/163/?type=playlist&id=2955219036",
         success:function(e){
             var a = new APlayer({
                 element:document.getElementById("ap-f"),
-                autoplay:false,
+                autoplay:true,
                 fixed:true,
                 loop:"all",
                 order:"list",
@@ -100,6 +100,6 @@ Date.prototype.Format = function(fmt){ //author: meizz
 
 $(document).ready(function(){
     getAchives();
-    gethitokoto();
+    //gethitokoto();
     setTimeout(function(){$(".loading").hide();},1500);
 });
