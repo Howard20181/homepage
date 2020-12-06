@@ -15,7 +15,7 @@ function switchTo(target){
 }
 
 function getAchives(){
-    t = ``;
+    t =``;
     $.ajax({
         type:"GET",
         url:"https://howardshome.cn/wp-json/wp/v2/posts?per_page=8&page=1",
