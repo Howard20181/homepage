@@ -35,7 +35,7 @@ function getAchives(){
 function gethitokoto(){
     $.ajax({
         type:"POST",
-        url:"https://api.fczbl.vip/hitokoto/?encode=json",
+        url:"https://api.moedog.org/hitokoto/?encode=json",
         dataType:"json",
         success:function(result){
             write(result.hitokoto);
@@ -56,7 +56,7 @@ function write(text){
 */
 $(function(){
     $.ajax({
-        url:"https://api.fczbl.vip/163/?type=playlist&id=2955219036",
+        url:"https://api.injahow.cn/meting/?type=playlist&id=2955219036",
         success:function(e){
             var a = new APlayer({
                 element:document.getElementById("ap-f"),
