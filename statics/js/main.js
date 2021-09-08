@@ -1,27 +1,27 @@
-$('.menu a').click(function(){
+$('.menu a').click(function () {
     target = $(this).attr('goto');
     switchTo(target);
-    $('.menu li a').each(function(){
+    $('.menu li a').each(function () {
         $(this).removeClass('active');
     });
     $(this).addClass('active');
 });
 
-function switchTo(target){
+function switchTo(target) {
     $('.right section').each(function () {
         $(this).removeClass('active');
     });
     $(target).addClass('active');
 }
 
-function getAchives(){
-    t =``;
+function getAchives() {
+    t = ``;
     $.ajax({
-        type:"GET",
-        url:"https://howardshome.cn/wp-json/wp/v2/posts?per_page=8&page=1",
-        dataType:"json",
-        success:function(json){
-            for(var i = 0;i < json.length;i++){
+        type: "GET",
+        url: "https://howardshome.cn/wp-json/wp/v2/posts?per_page=8&page=1",
+        dataType: "json",
+        success: function (json) {
+            for (var i = 0; i < json.length; i++) {
                 title = json[i].title.rendered;
                 link = json[i].link;
                 time = new Date(json[i].date).Format("yyyy-MM-dd");
@@ -54,24 +54,24 @@ function write(text){
     }
 }
 */
-$(function(){
+$(function () {
     $.ajax({
-        url:"https://api.injahow.cn/meting/?type=playlist&id=2955219036",
-        success:function(e){
+        url: "https://api.injahow.cn/meting/?type=playlist&id=2955219036",
+        success: function (e) {
             var a = new APlayer({
-                element:document.getElementById("ap-f"),
-                autoplay:true,
-                fixed:true,
-                loop:"all",
-                order:"list",
-                listFolded:true,
-                showlrc:3,
-                theme:"#e6d0b2",
-                listmaxheight:"200px",
-                music:eval(e)
+                element: document.getElementById("ap-f"),
+                autoplay: true,
+                fixed: true,
+                loop: "all",
+                order: "list",
+                listFolded: true,
+                showlrc: 3,
+                theme: "#e6d0b2",
+                listmaxheight: "200px",
+                music: eval(e)
             });
             window.aplayers || (window.aplayers = []),
-            window.aplayers.push(a)
+                window.aplayers.push(a)
         }
     })
 })
@@ -82,7 +82,7 @@ $(function(){
 // 例子： 
 // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
 // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
-Date.prototype.Format = function(fmt){ //author: meizz 
+Date.prototype.Format = function (fmt) { //author: meizz 
     var o = {
         "M+": this.getMonth() + 1, //月份 
         "d+": this.getDate(), //日 
@@ -92,14 +92,14 @@ Date.prototype.Format = function(fmt){ //author: meizz
         "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
         "S": this.getMilliseconds() //毫秒 
     };
-    if(/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1,(this.getFullYear() + "").substr(4 - RegExp.$1.length));
-    for(var k in o)
-        if(new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
     getAchives();
     //gethitokoto();
-    setTimeout(function(){$(".loading").hide();},1500);
+    setTimeout(function () { $(".loading").hide(); }, 1500);
 });
