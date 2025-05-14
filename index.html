@@ -6,7 +6,7 @@
 使用授权申请，可通过邮箱 i@iifly.cn 联系。
 拒绝授权转让。
 -->
-<html>
+<html lang="zh-cmn-Hans">
 
 <head>
     <meta charset="UTF-8">
@@ -16,14 +16,18 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <base href='https://howardshome.cn/about/'>
     <meta name="keywords" content="Howard,主页">
     <meta name="description" content="Howard的个人主页">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="statics/css/main.css">
-    <link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="statics/js/jquery.min.js"></script>
-    <script src="statics/js/aplayer.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link href="static/css/fontawesome.min.css" rel="stylesheet">
+    <link href="static/css/solid.min.css" rel="stylesheet">
+    <link href="static/css/brands.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/APlayer.min.css">
+    <script src="static/js/jquery-3.6.0.min.js"></script>
+    <script src="static/js/aplayer.min.js"></script>
+    <!-- <script src="static/js/js.cookie.min.3.0.1.js"></script> -->
+    <script src="static/js/sweetalert.min.2.1.2.js"></script>
 </head>
 
 <body>
@@ -36,16 +40,36 @@
             <div class="rect5"></div>
         </div>
     </div>
-    <!--<script>
-        var picnum = parseInt(Math.random()*19+1);
-        document.write('<div class="bak" style="background-image: url(statics/img/'+picnum+'.jpg);"></div>');
-    </script>-->
-    <div class="bak" style="background-image: url(statics/img/background-image.webp);"></div>
+    <script>
+        var picnum = parseInt(Math.random() * 19 + 1);
+        document.write('<div class="bak" style="background-image: url(static/img/' + picnum + '.jpg);"></div>');
+    </script>
+    <!-- <div class="bak" style="background-image: url(static/img/background-image.webp);"></div> -->
+    <div id="bg_img" class="bak bg-blur"></div>
+    <!-- <script>
+            $.ajax({
+                type: 'get',
+                url: 'https://bing.ioliu.cn/v1/',
+                dataType: 'jsonp',
+                success(data) {
+                    if (data.status.code == 200)
+                        document.getElementById("bg_img").style.backgroundImage = "url(" + data.data.url + ")";
+                    else
+                        console.error(data.status.code + ":" + data.status.message)
+                },
+                error(jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus, errorThrown)
+                }
+            })
+        </script> -->
     <main>
+        <div class="alert alert-success" id="success-alert" style="display: none;">
+            按任意键或点按页面播放音乐
+        </div>
         <div class="content">
             <div class="left">
                 <div class="avatar">
-                    <img src="statics/img/head.webp">
+                    <img src="static/img/head.webp">
                 </div>
                 <ul class="menu">
                     <li>
@@ -63,7 +87,7 @@
                 </ul>
                 <div class="copyright">
                     Made with
-                    <i class="fa fa-heart"></i> by
+                    <i class="fa-solid fa-heart"></i> by
                     <br>
                     <a href="https://fly.moe" target="_blank">Fly3949</a>
                 </div>
@@ -73,28 +97,33 @@
                     <h1>Howard</h1>
                     <div class="items">
                         <a href="https://howardshome.cn" target="_blank" rel="noopener">
-                            <i class="fa fa-home"></i>
-                            <span>Blog</span>
+                            <i class="fa-solid fa-blog"></i>
+                            <span>博客</span>
                         </a>
                         <a href="https://github.com/Howard20181" target="_blank" rel="noopener">
-                            <i class="fa fa-github"></i>
+                            <i class="fa-brands fa-github"></i>
                             <span>GitHub</span>
                         </a>
-                        <a href="mailto:wuhao@howardshome.cn" target="_blank" rel="noopener">
-                            <i class="fa fa-envelope"></i>
-                            <span>E-Mail</span>
+                        <a href="mailto:HowardWu20@outlook.com" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>E-mail</span>
                         </a>
                         <a href="https://space.bilibili.com/73515443" target="_blank" rel="noopener">
-                            <img src="statics/img/bilibili.svg">
-                            <span>Bilibili</span>
+                            <i class="fa-brands fa-bilibili"></i>
+                            <span>哔哩哔哩</span>
                         </a>
                         <a href="https://www.coolapk.com/u/1007844" target="_blank" rel="noopener">
-                            <img src="statics/img/coolapk.svg">
-                            <span>CoolApk</span>
+                            <i style="height: 50px"><svg t="1649451740438" class="icon" viewBox="0 0 1024 1024"
+                                    version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2750" width="48" height="48">
+                                    <path
+                                        d="M439.855 5.564c104.202-14.864 212.93 2.842 306.39 51.43 100.54 51.55 183.03 137.404 230.343 239.976 51.142 109.312 61.126 236.962 28.557 353.124-28.557 102.63-90.149 195.918-173.683 262.091-79.005 63.274-177.225 102.573-278.293 109.945-126.898 11.206-257.217-28.5-357.063-107.505-71.925-56.08-127.947-132.18-160.971-217.109-48.013-122.425-45.924-263.544 5.69-384.465C108.156 150.225 265.07 28.724 439.85 5.564zM286.939 358.358c-57.688 28.51-96.203 92.129-92.865 156.74 0.648 62.417 39.905 121.94 96.157 148.203 36.665 17.826 79.266 19.827 118.721 11.834 45.887-9.634 84.501-39.294 116.585-72.255 50.071-51.226 80.765-116.992 121.067-175.412a29169.058 29169.058 0 0 1 63.32 115.696c-22.961-14.785-43.687-32.81-67.406-46.487-15.642 11.18-31.086 22.669-46.88 33.65 57.993 45.892 118.325 88.785 177.513 133.126 12.11 8.187 26.008 21.77 41.702 13.73 16.442-6.688 21.128-28.411 11.311-42.543-48.927-93.127-101.34-184.352-152.503-276.282-5.282-12.236-18.338-21.32-31.99-17.376-12.6 1.995-18.927 14.529-25.359 24.116-29.988 49.434-57.74 100.32-91.02 147.707-31.64 45.14-72.047 90.227-127.599 103.81-54.204 14.232-117.728-13.583-138.449-67.108-16.645-43.196-2.742-96.079 34.122-124.338 33.583-27.167 81.01-29.11 120.868-16.525 39.863 12.878 71.497 41.64 103.482 67.459 16.342-11.285 33.63-21.672 47.631-35.955-42.005-37.303-86.888-74.25-141.197-91.528-44.988-11.834-95.112-12.278-137.21 9.738z"
+                                        p-id="2751"></path>
+                                </svg></i>
+                            <span>酷安</span>
                         </a>
                         <a href="https://weibo.com/679012423" target="_blank" rel="noopener">
-                            <i class="fa fa-weibo"></i>
-                            <span>Weibo</span>
+                            <i class="fa-brands fa-weibo"></i>
+                            <span>微博</span>
                         </a>
                     </div>
                 </section>
@@ -109,34 +138,40 @@
                     <p>
                         一位来自广东的小朋友<br>
                         学生狗 / 害怕社交在人群中瑟瑟发抖<br>
-                        Microsoft粉 / 仰望Google / MI粉 <a href="https://howardshome.cn/关于" target="_blank">More...</a>
+                        Microsoft粉 / 仰望Google / MI粉 <!-- <a href="about" target="_blank">More...</a> -->
                     </p>
                 </section>
                 <section id="donate">
                     <h1>求投食喵 !</h1>
                     <div class="donate-img-box">
-                        <!--<a href="https://howardshome.cn/donate" target="_blank" rel="noopener">
-                            <img src="poor.jpg" >
-                        </a>-->
+                        <div class="column"><img src="static/img/qr_alipay.png"
+                                alt="https://qr.alipay.com/tsx10848q9jd9fow3fexld1" title="支付宝"></div>
+                        <div class="column"><img src="static/img/qr_alipay_redpacket.png"
+                                alt="https://qr.alipay.com/11w12856pxfvk6s9ufrpo24" title="支付宝红包"></div>
+                        <div class="column"><img src="static/img/qr_mmpay.png"
+                                alt="wxp://f2f0jmnyGUlNYSMjxHQyiiXXOoB6OyzzPa1Yx9YXPj3c8YlJ09nJQYY7vzZe3C701vfo"
+                                title="微信支付"></div>
                     </div>
                 </section>
             </div>
         </div>
         <footer>
-            <!--<p id="hitokoto">Loading...</p>-->
-            <span id="jinrishici-sentence">正在加载今日诗词....</span>
-            <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+            <p id="hitokoto"><a href="#" target="_blank" id="hitokoto_text">:D 获取中...</a></p>
+            <!--<span id="jinrishici-sentence">正在加载今日诗词....</span>
+                        <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+                        -->
             <div class="copyright-mobile">
                 Made with
-                <i class="fa fa-heart"></i> by
+                <i class="fa-solid fa-heart"></i> by
                 <a href="https://fly.moe" target="_blank">Fly3949</a>
             </div>
         </footer>
+
         <div class="aplayer-footer">
             <div class="ap-f" id="ap-f"></div>
         </div>
     </main>
-    <script src="statics/js/main.js"></script>
+    <script src="static/js/main.js"></script>
 </body>
 
 </html>
